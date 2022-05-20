@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="produitContainer d-flex">
+        <div class="imageContainerShow w-50">
+            <img src="{{product.imagePath}}">
+        </div>
+        <div class="detailContainer w-50">
+            <h1>{{product.name}}</h1>
+            Le {{product.createdAt|date('d/m/Y')}}
+            Mise en ligne par {{product.createdBy.username}}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

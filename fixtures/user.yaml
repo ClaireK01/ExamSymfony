@@ -1,0 +1,15 @@
+App\Entity\User:
+  user(0):
+    username: '<username()>'
+    email: 'claire@gmail.com'
+    # Password 'test'
+    password: "\\$2y\\$13\\$hiVmHoHLs9r8Gx4qjQIGq.n1MskWERLQpIn/R71ackzjAMArjfqY2"
+    roles: ['ROLE_ADMIN']
+    # products: 'x<numberBetween(1,10)>@product*'
+  user{1..10}:
+    username: '<username()>'
+    email: '<email()>'
+    # Password 'test'
+    password: "\\$2y\\$13\\$hiVmHoHLs9r8Gx4qjQIGq.n1MskWERLQpIn/R71ackzjAMArjfqY2"
+    roles: ['ROLE_USER']
+    # products: 'x<numberBetween(1, 10)> @product*'

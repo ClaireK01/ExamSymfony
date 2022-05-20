@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+
+        <h1 class="my-5"> Tout les produits:</h1>
+        <div class="row">
+            {% for product in pagination %}
+                <a href="{{path('app_product_active', {id:product.id})}}" class="col-3">
+                    <div class="text-center">
+                        <div class="imageContainer">
+                            <img src="{{product.imagePath}}" alt="photo produit">
+                        </div>
+                        <p>
+                            {{product.name}}<br>
+                            le {{product.createdAt|date('d/m/Y')}}
+                        </p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+        <div class="my-5 pagination">{{ knp_pagination_render(pagination, "@KnpPaginator/Pagination/bootstrap_v5_pagination.html.twig") }}</div>
+        <a>Supprimer tout les éléments inactif</a>
+        
+    </div>
+    
+   
+
+{% endblock %}

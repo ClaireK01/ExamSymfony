@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container my-5">
+    <h1 class="my-5">Editer un produit : </h1>  
+        {{form_start(form)}}
+            {{form_row(form.name)}}
+            {{form_row(form.imagePath)}}
+        <button class="btn btn-primary my-3">Valider</button>
+        {{form_end(form)}}
+    </div>
+
+{% endblock %}

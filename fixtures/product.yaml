@@ -1,0 +1,7 @@
+App\Entity\Product:
+  product{0..150}:
+    name: '<word()>'
+    createdAt: '<datetimeBetween("-300 days", "now")>'
+    createdBy: '@user*'
+    imagePath: 'https://caer.univ-amu.fr/wp-content/uploads/default-placeholder.png'
+    isActive: '<numberBetween(0,1)>'

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="container my-5">
+<h1 class="my-5">Tout mes Produits :</h1>
+    <table class="table table-stripped table-hover">
+        <tbody>
+            {% for product in products %}
+            
+            <tr>
+                <td>
+                    <div class="imageContainer w-50">
+                        <img src="{{product.imagePath}}" alt="photo produit">
+                    </div>
+                </td>
+                <td> <p class="mt-5">{{product.name}}</p></td>
+                <td> <p class="mt-5">le {{product.createdAt|date('d/m/Y')}}</p></td>
+                <td> <a  href="{{path('app_product_edit', {id:product.id})}}"><p class="mt-5"><i class="fa-solid fa-pen"></i></p></a></td>
+                <td>
+                <a href="{{path('app_product_delete', {id:product.id})}}"><p class="mt-5"><i class="fa-solid fa-circle-minus text-danger"></p></i></a>
+                    {# <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_{{loop.index}}">
+                        <i class="fa-solid fa-circle-minus"></i>
+                    </button> #}
+                </td>
+                <td><p class="mt-5">{% if product.isActive %} Actif <i class="fa-solid fa-check text-success"></i>
+                    {% else %} Inactif <i class="fa-solid fa-xmark text-danger"></i> {% endif %}</p></td>
+
+                {# <!-- Modal -->
+                <div class="modal fade" id="modal_{{loop.index}}" tabindex="-1" aria-labelledby="modalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body text-dark">
+                                Etes vous sur de vouloir supprimer le produit {{product.name}}?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                                <a href="#"
+                                    class="btn btn-primary">Oui</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> #}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{path('app_product_add')}}" class="btn btn-primary my-5">Ajouter un produit</a>
+</div>
+
+{% endblock %}
